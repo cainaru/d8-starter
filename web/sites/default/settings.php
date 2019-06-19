@@ -251,7 +251,9 @@ $databases = [];
  *   ];
  * @endcode
  */
-$config_directories = [];
+$config_directories = array(
+  CONFIG_SYNC_DIRECTORY => dirname(DRUPAL_ROOT) . '/config',
+);
 
 /**
  * Settings:
@@ -672,7 +674,8 @@ if ($settings['hash_salt']) {
 /**
  * Load services definition file.
  */
-$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+# $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+$settings['container_yamls'][] = __DIR__ . '/services.yml';
 
 /**
  * Override the default service container class.
@@ -777,4 +780,7 @@ $settings['entity_update_backup'] = TRUE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$config_directories['sync'] = '../config/sync';
+$local_settings = __DIR__ . "/settings.local.php";
+if (file_exists($local_settings)) {
+  include $local_settings;
+}

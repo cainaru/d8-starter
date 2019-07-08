@@ -83,10 +83,6 @@
         ]
     },
     "extra": {
-        "composer-exit-on-patch-failure": true,
-        "patchLevel": {
-            "drupal/core": "-p2"
-        },
         "installer-types": [
             "bower-asset",
             "npm-asset",
@@ -113,6 +109,11 @@
                 ".editorconfig": "../.editorconfig",
                 ".gitattributes": "../.gitattributes"
             }
+        },
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
         }
     }
 }

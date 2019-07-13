@@ -7,7 +7,7 @@ config:
   database: mariadb:10.3.16
 proxy:
   phpmyadmin:
-    - pma.d8-starter.lndo.site
+    - pma-d8-starter.lndo.site
 services:
   phpmyadmin:
     type: phpmyadmin
